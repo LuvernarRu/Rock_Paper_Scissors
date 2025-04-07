@@ -1,7 +1,7 @@
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public final class StoneScissorsPaper
+public final class RockPaperScissors
 {
     private final RealPlayer realPlayer   = new RealPlayer("realPlayer");
     private final AiPlayer aiPlayer       = new AiPlayer("aiPlayer");
@@ -10,13 +10,13 @@ public final class StoneScissorsPaper
 
     private final Map<Integer, Types> types = Map.of (
             0, Types.PAPER,
-            1, Types.STONE,
+            1, Types.ROCK,
             2, Types.SCISSORS
     );
 
     private final Map<Types, Types> wins = Map.of(
-            Types.PAPER,    Types.STONE,
-            Types.STONE,    Types.SCISSORS,
+            Types.PAPER,    Types.ROCK,
+            Types.ROCK,    Types.SCISSORS,
             Types.SCISSORS, Types.PAPER
     );
 
@@ -83,9 +83,9 @@ public final class StoneScissorsPaper
     {
         @Override
         void choosing() {
-            StoneScissorsPaper ssp = new StoneScissorsPaper();
+            RockPaperScissors ssp = new RockPaperScissors();
 
-            System.out.println("Choose:\n0 - paper\n1 - stone\n2 - scissors\n3 - exit");
+            System.out.println("Choose:\n0 - paper\n1 - rock\n2 - scissors\n3 - exit");
 
             int choice = scanner.nextInt();
 
@@ -129,7 +129,7 @@ public final class StoneScissorsPaper
 
             System.out.println(this.name + " wins!");
 
-            new StoneScissorsPaper();
+            new RockPaperScissors();
         }
 
         public String toString() {
@@ -141,14 +141,14 @@ public final class StoneScissorsPaper
 
     private enum Types
     {
-        STONE, PAPER, SCISSORS;
+        ROCK, PAPER, SCISSORS;
     }
 
-    private StoneScissorsPaper() {
+    private RockPaperScissors() {
     }
 
     public static void main(String[] args) {
-        StoneScissorsPaper ssp = new StoneScissorsPaper();
+        RockPaperScissors ssp = new RockPaperScissors();
 
         ssp.clearConsole();
 
