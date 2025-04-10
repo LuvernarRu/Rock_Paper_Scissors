@@ -28,9 +28,16 @@ public final class RockPaperScissors
         realPlayer.choosing();
         aiPlayer.choosing();
 
+        clearConsole();
+
+        System.out.println("\n\n");
+        System.out.println("Ai chose:     " + aiPlayer.currentType);
+        System.out.println("Player chose: " + realPlayer.currentType + "\n");
+
         if (!checkWin(realPlayer, aiPlayer) && !checkWin(aiPlayer, realPlayer)) {
             System.out.println("Nobody won");
 
+            waitForASecond();
             waitForASecond();
 
             clearConsole();
@@ -40,6 +47,9 @@ public final class RockPaperScissors
     void clearConsole() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
+
+        System.out.println(aiPlayer);
+        System.out.println(realPlayer);
     }
 
     private boolean checkWin(Player player, Player against)
@@ -89,6 +99,8 @@ public final class RockPaperScissors
 
             int choice = scanner.nextInt();
 
+            clearConsole();
+
             if (choice == 0 || choice == 1 || choice == 2) {
                 this.currentType = types.get(choice);
             }
@@ -121,7 +133,6 @@ public final class RockPaperScissors
 
         void startMove() {
             currentType = null;
-            System.out.println(this);
         }
 
         void win() {
